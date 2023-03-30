@@ -13,20 +13,20 @@ const images = [
   },
 ];
 
-const galleryList = document.querySelector(".gallery");
+const gallery = document.querySelector(".gallery");
 
-const galleryMarkup = images
+const markup = images
   .map(
-    (image) =>
-      `<li class="gallery-item new"><img url="${image.url}" alt="${image.alt}"/></li>`
+    (e) =>
+      `<li class="gallery-item"><img src="${e.url}" alt="${e.alt}" height="200"/></li>`
   )
   .join("");
+console.log(markup);
 
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+gallery.insertAdjacentHTML("beforeend", markup);
 
 const htmlString = `<style>
 .gallery {
-  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,11 +34,10 @@ const htmlString = `<style>
 }
 
 .gallery-item {
-  height: 80%;
   margin: 20px;
 }
 </style>`;
 
-galleryList.innerHTML += htmlString;
+gallery.innerHTML += htmlString;
 
-console.log(galleryList);
+console.log(gallery);
